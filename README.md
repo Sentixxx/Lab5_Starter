@@ -1,4 +1,4 @@
-partner: I do it myself
+partner: I do it myself(Miaoxin Chen)
 
 [expose](https://blog.sentixx.top/Lab5_Starter/expose)
 [explore](https://blog.sentixx.top/Lab5_Starter/explore)
