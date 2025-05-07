@@ -1,5 +1,14 @@
+partner: I do it myself
+
+[expose](https://blog.sentixx.top/Lab5_Starter/expose)
+[explore](https://blog.sentixx.top/Lab5_Starter/explore)
+
+--------------------------
+
 # Lab 5 - Starter
 Make sure you make a PR to your own repo's main and not the class' repo!! Otherwise you will lose points!!
+
+-------------------------------
 
 # Answer
 
