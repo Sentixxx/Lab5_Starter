@@ -56,9 +56,12 @@ function init() {
   const hornSelectingElement = document.getElementById('horn-select');
   const volumeControlElement = document.getElementById('volume-controls');
   const playButtonElement = document.querySelector('#expose button');
+  const soundFileElement = document.querySelector('#expose audio');
 
 
   let canvas = document.querySelector('body canvas');
+
+  
 
   if (!canvas) {
     canvas = document.createElement('canvas');
@@ -85,11 +88,18 @@ function init() {
 
   const jsConfetti = new JSConfetti({canvas});
 
+  soundFileElement.addEventListener('ended', () => {
+    playButtonElement.disabled = false;
+  });
+  soundFileElement.addEventListener('play', () => {
+    playButtonElement.disabled = true;
+  });
+  
+
   hornSelectingElement.addEventListener('change', handleHornSelected);
   volumeControlElement.addEventListener('input', handleVolumeInput);
   playButtonElement.addEventListener('click', () => {
     const volumeValue = document.getElementById('volume').value;
-    const soundFileElement = document.querySelector('#expose audio');
 
     if(hornSelectingElement.value === 'select') {
       alert('Please select a sound first.');
@@ -107,10 +117,13 @@ function init() {
           confettiNumber: 200,
         });
       }
-
-      soundFileElement.play();
     }
     , 0);
+    if (soundFileElement.readyState < 3) {
+      soundFileElement.addEventListener('canplaythrough', () => soundFileElement.play(), { once: true });
+    } else {
+      soundFileElement.play();
+    }
   });
 
 }
